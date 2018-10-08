@@ -1,0 +1,1 @@
+captcha_api_key = "YOUR_2CAPTCHA_API_KEY"
