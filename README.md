@@ -1,6 +1,6 @@
 # Consulta de Deuda Previsional
 
-Esta aplicación recibe una lista de RUTs, ingresa a https://www.spensiones.cl/apps/certificados/formConsultaDeuda.php, pasa el captcha de google usando [2capcha](https://2captcha.com/) y envía un POST con cada rut, descargando el html con la deuda previsional de cada uno, luego deberá guardar los datos parseados en un archivo o una base de datos.
+Esta aplicación recibe una lista de RUTs, ingresa a https://www.spensiones.cl/apps/certificados/formConsultaDeuda.php, pasa el captcha de google usando [2capcha](https://2captcha.com/) y envía un POST con cada rut, descargando el html con la deuda previsional de cada uno, y guardando los datos parseados en la tabla y base de datos configurada.
 
 ## Requisitos
 
