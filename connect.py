@@ -1,5 +1,7 @@
 import MySQLdb
 import keys as k
+import datetime
+
 
 def get_ruts():
     try:
@@ -17,12 +19,13 @@ def get_ruts():
     except:
         raise Exception
 
-def insert_data(datos):
+def insert_data(datos, rut_consulta):
     try:
         db = MySQLdb.connect(host=k.host, user=k.user, passwd=k.passwd, db=k.db)    
         cur = db.cursor()
+        now = datetime.datetime.now()
         for data in datos:
-            query = 'INSERT INTO ' + k.tableInsert + '(periodo, origen, cuenta, rut_empleador, razon_social, estado, AFP_AFC) VALUES("' + data[0] + '","' + data[1] + '","' + data[2] + '","' + data[3] + '","' + data[4] + '","' + data[5] + '","' + data[6] + '")'
+            query = 'INSERT INTO ' + k.tableInsert + '(periodo, origen, cuenta, rut_empleador, razon_social, estado, AFP_AFC, rut_consulta, fecha_consulta) VALUES("' + data[0] + '","' + data[1] + '","' + data[2] + '","' + data[3] + '","' + data[4] + '","' + data[5] + '","' + data[6] + '","' + rut_consulta + '","' + str(now) + '")'
             cur.execute(query)
         db.commit()
         db.close()

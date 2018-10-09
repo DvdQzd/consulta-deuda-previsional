@@ -16,10 +16,10 @@ for rut in ruts:
         data = Scraper.data_parser(source)
         tries += 1
         sleep(5)
-    if(tries = 3):
+    if(tries == 3):
         print("Ya fueron 3 intentos. Ahorraremos Captchas para despues.")
     if(data):
-        con.insert_data(data)
+        con.insert_data(data, rut)
 
 
 
