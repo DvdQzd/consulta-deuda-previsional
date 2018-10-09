@@ -16,8 +16,8 @@ for rut in ruts:
         data = Scraper.data_parser(source)
         tries += 1
         sleep(5)
-    
-    con.insert_data(data)
+    if(data):
+        con.insert_data(data)
 
 
 
