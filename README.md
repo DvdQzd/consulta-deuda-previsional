@@ -8,7 +8,12 @@ Esta aplicación recibe una lista de RUTs, ingresa a https://www.spensiones.cl/a
 
 ## Instalación
 
-Para instalar las dependencias necesarias, ejecutar el comando `pip install -r requirements.txt`
+Para instalar las dependencias necesarias, ejecutar los siguientes comandos:
+
+- `pip install -r requirements.txt`
+- `cp keys_example.py keys.py`
+
+Y luego agregar los datos necesarios en `keys.py`
 
 ## Uso
 
