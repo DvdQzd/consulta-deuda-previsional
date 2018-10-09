@@ -1,6 +1,7 @@
 import requests
 from time import sleep, time
 import keys
+import session
 
 class Captura(object):
 
@@ -42,7 +43,8 @@ class Captura(object):
 
 
         submit_url = "https://www.spensiones.cl/apps/certificados/consultaDeudaPrevisional.php"
-        session_id = "3ccf8825f2133651c5206263b2c33f1ef54eac1a"
+        session_id = session.get_session_id()
+        print("SessionId: " + session_id)
 
         headers = {
             'Host': 'www.spensiones.cl',
