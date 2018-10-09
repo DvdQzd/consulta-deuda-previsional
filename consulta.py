@@ -29,6 +29,15 @@ class Captura(object):
                 break
                 
         print("g-recaptcha-response: " + resp.text[3:])
+
+        if(resp.text[3:] == "CAPCHA_NOT_READY"):
+            print("Intentaremos de nuevo en 5 segundos...")
+            sleep(5)
+            pass
+        if(resp.text[3:] == "ERROR_ZERO_BALANCE"):
+            print("No queda debito en 2captcha.")
+            raise Exception
+
         print('Time to solve: ', time() - start_time) 
 
 

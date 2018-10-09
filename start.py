@@ -1,18 +1,24 @@
 from consulta import Captura
 from format_rut import Rut
 from scraper import *
+import connect as con
+from time import sleep
 
 
-ruts = ["96806980-2", "90635000-9", "96799250-K"]
+ruts = con.get_ruts()
 
 for rut in ruts:
+    data = False
     rut = Rut.formatter(rut)
-
-    robot = False
-
-    while(robot == False):
+    tries = 0
+    while(data == False and tries < 3):
         source = Captura.captura_datos(rut)
-        robot = Scraper.data_parser(source)
+        data = Scraper.data_parser(source)
+        tries += 1
+        sleep(5)
+    
+    con.insert_data(data)
+
 
 
 
