@@ -15,14 +15,22 @@ class Captura(object):
         page_url = "https://www.spensiones.cl/apps/certificados/formConsultaDeuda.php"
         method = "userrecaptcha"
 
-        url="http://2captcha.com/in.php?key=" + captcha_key + "&method=" + method + "&googlekey=" + google_key + "&pageurl=" + page_url
+        url="http://2captcha.com/in.php?key={captcha_key}&method={method}&googlekey={google_key}&pageurl={page_url}".format(
+            captcha_key=captcha_key,
+            method=method,
+            google_key=google_key,
+            page_url=page_url,
+        )
         resp = requests.get(url) 
         print(resp.text)
         if resp.text[0:2] != 'OK':
             quit('Error. Captcha is not received')
         captcha_id = resp.text[3:]
 
-        fetch_url = "http://2captcha.com/res.php?key=" + captcha_key + "&action=get&id=" + captcha_id
+        fetch_url = "http://2captcha.com/res.php?key={captcha_key}&action=get&id={captcha_id}".format(
+            captcha_key=captcha_key,
+            captcha_id=captcha_id,
+        )
         for i in range(1, 20):	
             sleep(5) # wait 5 sec.
             resp = requests.get(fetch_url)
